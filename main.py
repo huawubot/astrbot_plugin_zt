@@ -29,6 +29,6 @@ class StatusPlugin(Star):
         yield event.plain_result(sys_info)
 
     @filter.llm_tool(name="get_system_status")
-    async def get_system_status(self, event: AstrMessageEvent) -> str:
+    async def get_system_status(self, event: AstrMessageEvent, reason: str = "") -> str:
         """获取当前服务器系统状态（包含CPU、内存、硬盘、运行时间等详细信息）。"""
         return await self.status_manager.get_zhuangtai_text()
